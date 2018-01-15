@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _Legend$propTypes;
+
 exports.default = Legend;
 
 var _react = require("react");
@@ -40,7 +42,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-Legend.propTypes = {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+Legend.propTypes = (_Legend$propTypes = {
   className: _propTypes2.default.string,
   style: _propTypes2.default.object,
   scale: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.object]).isRequired,
@@ -52,10 +56,8 @@ Legend.propTypes = {
   direction: _propTypes2.default.string,
   itemDirection: _propTypes2.default.string,
   fill: _propTypes2.default.func,
-  shape: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string]),
-  labelFormat: _propTypes2.default.func,
-  labelTransform: _propTypes2.default.func
-};
+  shape: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string])
+}, _defineProperty(_Legend$propTypes, "shape", _propTypes2.default.array), _defineProperty(_Legend$propTypes, "labelFormat", _propTypes2.default.func), _defineProperty(_Legend$propTypes, "labelTransform", _propTypes2.default.func), _Legend$propTypes);
 
 var defaultStyle = {
   display: "flex"

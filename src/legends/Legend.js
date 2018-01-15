@@ -34,7 +34,7 @@ export default function Legend({
   shapeStyle,
   scale,
   shape,
-  shapes,
+  shapes = [],
   domain,
   fill = valueOrIdentity,
   size = valueOrIdentity,
