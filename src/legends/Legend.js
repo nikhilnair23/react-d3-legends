@@ -1,24 +1,17 @@
-import React from 'react';
-import cx from 'classnames';
-import PropTypes from 'prop-types';
-import LegendItem from './LegendItem';
-import LegendLabel from './LegendLabel';
-import LegendShape from './LegendShape';
-import valueOrIdentity from '../util/valueOrIdentity';
+import React from "react";
+import cx from "classnames";
+import PropTypes from "prop-types";
+import LegendItem from "./LegendItem";
+import LegendLabel from "./LegendLabel";
+import LegendShape from "./LegendShape";
+import valueOrIdentity from "../util/valueOrIdentity";
 
 Legend.propTypes = {
   className: PropTypes.string,
   style: PropTypes.object,
-  scale: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-    .isRequired,
-  shapeWidth: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
-  shapeHeight: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]),
+  scale: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
+  shapeWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  shapeHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   shapeMargin: PropTypes.string,
   labelMargin: PropTypes.string,
   itemMargin: PropTypes.string,
@@ -27,11 +20,11 @@ Legend.propTypes = {
   fill: PropTypes.func,
   shape: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
   labelFormat: PropTypes.func,
-  labelTransform: PropTypes.func,
+  labelTransform: PropTypes.func
 };
 
 const defaultStyle = {
-  display: 'flex',
+  display: "flex"
 };
 
 export default function Legend({
@@ -40,6 +33,7 @@ export default function Legend({
   shapeStyle,
   scale,
   shape,
+  shapes,
   domain,
   fill = valueOrIdentity,
   size = valueOrIdentity,
@@ -47,25 +41,26 @@ export default function Legend({
   labelTransform = defaultTransform,
   shapeWidth = 15,
   shapeHeight = 15,
-  shapeMargin = '2px 4px 2px 0',
-  labelAlign = 'left',
-  labelMargin = '0 4px',
-  itemMargin = '0',
-  direction = 'column',
-  itemDirection = 'row',
+  shapeMargin = "2px 4px 2px 0",
+  labelAlign = "left",
+  labelMargin = "0 4px",
+  itemMargin = "0",
+  direction = "column",
+  itemDirection = "row",
   ...restProps
 }) {
   domain = domain || scale.domain();
   const labels = domain.map(labelTransform({ scale, labelFormat }));
   return (
     <div
-      className={cx('vx-legend', className)}
+      className={cx("vx-legend", className)}
       style={{
         ...style,
-        flexDirection: direction,
+        flexDirection: direction
       }}
     >
       {labels.map((label, i) => {
+        shape = shapes[i] == undefined ? shape : shapes[i];
         const { text } = label;
         return (
           <LegendItem
@@ -85,11 +80,7 @@ export default function Legend({
               size={size}
               shapeStyle={shapeStyle}
             />
-            <LegendLabel
-              label={text}
-              margin={labelMargin}
-              align={labelAlign}
-            />
+            <LegendLabel label={text} margin={labelMargin} align={labelAlign} />
           </LegendItem>
         );
       })}
@@ -103,7 +94,7 @@ function defaultTransform({ scale, labelFormat }) {
       datum: d,
       index: i,
       text: `${labelFormat(d, i)}`,
-      value: scale(d),
+      value: scale(d)
     };
   };
 }
