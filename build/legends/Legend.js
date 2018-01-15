@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -8,31 +8,31 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = Legend;
 
-var _react = require('react');
+var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _classnames = require('classnames');
+var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _propTypes = require('prop-types');
+var _propTypes = require("prop-types");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _LegendItem = require('./LegendItem');
+var _LegendItem = require("./LegendItem");
 
 var _LegendItem2 = _interopRequireDefault(_LegendItem);
 
-var _LegendLabel = require('./LegendLabel');
+var _LegendLabel = require("./LegendLabel");
 
 var _LegendLabel2 = _interopRequireDefault(_LegendLabel);
 
-var _LegendShape = require('./LegendShape');
+var _LegendShape = require("./LegendShape");
 
 var _LegendShape2 = _interopRequireDefault(_LegendShape);
 
-var _valueOrIdentity = require('../util/valueOrIdentity');
+var _valueOrIdentity = require("../util/valueOrIdentity");
 
 var _valueOrIdentity2 = _interopRequireDefault(_valueOrIdentity);
 
@@ -58,7 +58,7 @@ Legend.propTypes = {
 };
 
 var defaultStyle = {
-  display: 'flex'
+  display: "flex"
 };
 
 function Legend(_ref) {
@@ -68,6 +68,7 @@ function Legend(_ref) {
       shapeStyle = _ref.shapeStyle,
       scale = _ref.scale,
       shape = _ref.shape,
+      shapes = _ref.shapes,
       domain = _ref.domain,
       _ref$fill = _ref.fill,
       fill = _ref$fill === undefined ? _valueOrIdentity2.default : _ref$fill,
@@ -82,36 +83,37 @@ function Legend(_ref) {
       _ref$shapeHeight = _ref.shapeHeight,
       shapeHeight = _ref$shapeHeight === undefined ? 15 : _ref$shapeHeight,
       _ref$shapeMargin = _ref.shapeMargin,
-      shapeMargin = _ref$shapeMargin === undefined ? '2px 4px 2px 0' : _ref$shapeMargin,
+      shapeMargin = _ref$shapeMargin === undefined ? "2px 4px 2px 0" : _ref$shapeMargin,
       _ref$labelAlign = _ref.labelAlign,
-      labelAlign = _ref$labelAlign === undefined ? 'left' : _ref$labelAlign,
+      labelAlign = _ref$labelAlign === undefined ? "left" : _ref$labelAlign,
       _ref$labelMargin = _ref.labelMargin,
-      labelMargin = _ref$labelMargin === undefined ? '0 4px' : _ref$labelMargin,
+      labelMargin = _ref$labelMargin === undefined ? "0 4px" : _ref$labelMargin,
       _ref$itemMargin = _ref.itemMargin,
-      itemMargin = _ref$itemMargin === undefined ? '0' : _ref$itemMargin,
+      itemMargin = _ref$itemMargin === undefined ? "0" : _ref$itemMargin,
       _ref$direction = _ref.direction,
-      direction = _ref$direction === undefined ? 'column' : _ref$direction,
+      direction = _ref$direction === undefined ? "column" : _ref$direction,
       _ref$itemDirection = _ref.itemDirection,
-      itemDirection = _ref$itemDirection === undefined ? 'row' : _ref$itemDirection,
-      restProps = _objectWithoutProperties(_ref, ['className', 'style', 'shapeStyle', 'scale', 'shape', 'domain', 'fill', 'size', 'labelFormat', 'labelTransform', 'shapeWidth', 'shapeHeight', 'shapeMargin', 'labelAlign', 'labelMargin', 'itemMargin', 'direction', 'itemDirection']);
+      itemDirection = _ref$itemDirection === undefined ? "row" : _ref$itemDirection,
+      restProps = _objectWithoutProperties(_ref, ["className", "style", "shapeStyle", "scale", "shape", "shapes", "domain", "fill", "size", "labelFormat", "labelTransform", "shapeWidth", "shapeHeight", "shapeMargin", "labelAlign", "labelMargin", "itemMargin", "direction", "itemDirection"]);
 
   domain = domain || scale.domain();
   var labels = domain.map(labelTransform({ scale: scale, labelFormat: labelFormat }));
   return _react2.default.createElement(
-    'div',
+    "div",
     {
-      className: (0, _classnames2.default)('vx-legend', className),
+      className: (0, _classnames2.default)("vx-legend", className),
       style: _extends({}, style, {
         flexDirection: direction
       })
     },
     labels.map(function (label, i) {
+      shape = shapes[i] == undefined ? shape : shapes[i];
       var text = label.text;
 
       return _react2.default.createElement(
         _LegendItem2.default,
         _extends({
-          key: 'legend-' + label + '-' + i,
+          key: "legend-" + label + "-" + i,
           margin: itemMargin,
           flexDirection: itemDirection,
           label: label
@@ -126,11 +128,7 @@ function Legend(_ref) {
           size: size,
           shapeStyle: shapeStyle
         }),
-        _react2.default.createElement(_LegendLabel2.default, {
-          label: text,
-          margin: labelMargin,
-          align: labelAlign
-        })
+        _react2.default.createElement(_LegendLabel2.default, { label: text, margin: labelMargin, align: labelAlign })
       );
     })
   );
@@ -144,7 +142,7 @@ function defaultTransform(_ref2) {
     return {
       datum: d,
       index: i,
-      text: '' + labelFormat(d, i),
+      text: "" + labelFormat(d, i),
       value: scale(d)
     };
   };

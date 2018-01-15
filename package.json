@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@vx/group": "0.0.153",
+    "babel-cli": "^6.26.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10"
   },
