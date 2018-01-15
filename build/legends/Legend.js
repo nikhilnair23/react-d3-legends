@@ -110,10 +110,6 @@ function Legend(_ref) {
       })
     },
     labels.map(function (label, i) {
-      {
-        console.log(shapes);
-        console.log(label);
-      }
       shape = shapes[label.text] == undefined ? shape : shapes[label.text];
       var text = label.text;
 

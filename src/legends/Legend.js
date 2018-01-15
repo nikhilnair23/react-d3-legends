@@ -61,10 +61,6 @@ export default function Legend({
       }}
     >
       {labels.map((label, i) => {
-        {
-          console.log((shapes: shapes));
-          console.log((label: label));
-        }
         shape = shapes[label.text] == undefined ? shape : shapes[label.text];
         const { text } = label;
         return (
