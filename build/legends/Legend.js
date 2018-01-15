@@ -57,7 +57,7 @@ Legend.propTypes = (_Legend$propTypes = {
   itemDirection: _propTypes2.default.string,
   fill: _propTypes2.default.func,
   shape: _propTypes2.default.oneOfType([_propTypes2.default.func, _propTypes2.default.string])
-}, _defineProperty(_Legend$propTypes, "shape", _propTypes2.default.array), _defineProperty(_Legend$propTypes, "labelFormat", _propTypes2.default.func), _defineProperty(_Legend$propTypes, "labelTransform", _propTypes2.default.func), _Legend$propTypes);
+}, _defineProperty(_Legend$propTypes, "shape", _propTypes2.default.object), _defineProperty(_Legend$propTypes, "labelFormat", _propTypes2.default.func), _defineProperty(_Legend$propTypes, "labelTransform", _propTypes2.default.func), _Legend$propTypes);
 
 var defaultStyle = {
   display: "flex"
@@ -71,7 +71,7 @@ function Legend(_ref) {
       scale = _ref.scale,
       shape = _ref.shape,
       _ref$shapes = _ref.shapes,
-      shapes = _ref$shapes === undefined ? [] : _ref$shapes,
+      shapes = _ref$shapes === undefined ? {} : _ref$shapes,
       domain = _ref.domain,
       _ref$fill = _ref.fill,
       fill = _ref$fill === undefined ? _valueOrIdentity2.default : _ref$fill,
@@ -110,7 +110,7 @@ function Legend(_ref) {
       })
     },
     labels.map(function (label, i) {
-      shape = shapes[i] == undefined ? shape : shapes[i];
+      shape = shapes[label] == undefined ? shape : shapes[label];
       var text = label.text;
 
       return _react2.default.createElement(
