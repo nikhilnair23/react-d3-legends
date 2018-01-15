@@ -65,7 +65,7 @@ export default function Legend({
           console.log((shapes: shapes));
           console.log((label: label));
         }
-        shape = shapes[label] == undefined ? shape : shapes[label];
+        shape = shapes[label.text] == undefined ? shape : shapes[label.text];
         const { text } = label;
         return (
           <LegendItem

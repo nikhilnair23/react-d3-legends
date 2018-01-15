@@ -1,6 +1,6 @@
 {
   "name": "react-d3-legends",
-  "version": "0.0.24",
+  "version": "0.0.26",
   "description": "react d3 legends",
   "sideEffects": false,
   "main": "build/index.js",

@@ -114,7 +114,7 @@ function Legend(_ref) {
         console.log(shapes);
         console.log(label);
       }
-      shape = shapes[label] == undefined ? shape : shapes[label];
+      shape = shapes[label.text] == undefined ? shape : shapes[label.text];
       var text = label.text;
 
       return _react2.default.createElement(
