@@ -19,7 +19,7 @@ Legend.propTypes = {
   itemDirection: PropTypes.string,
   fill: PropTypes.func,
   shape: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
-  shape: PropTypes.array,
+  shape: PropTypes.object,
   labelFormat: PropTypes.func,
   labelTransform: PropTypes.func
 };
@@ -34,7 +34,7 @@ export default function Legend({
   shapeStyle,
   scale,
   shape,
-  shapes = [],
+  shapes = {},
   domain,
   fill = valueOrIdentity,
   size = valueOrIdentity,
@@ -61,7 +61,7 @@ export default function Legend({
       }}
     >
       {labels.map((label, i) => {
-        shape = shapes[i] == undefined ? shape : shapes[i];
+        shape = shapes[label] == undefined ? shape : shapes[label];
         const { text } = label;
         return (
           <LegendItem
