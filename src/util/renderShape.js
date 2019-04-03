@@ -5,7 +5,7 @@ import ShapeCircle from '../shapes/Circle';
 import ShapeTriangleUp from '../shapes/TriangleUp';
 import ShapeTriangleDown from '../shapes/TriangleDown';
 import ShapeDiamond from '../shapes/Diamond';
-import ShapeCross from '../shapes/cross';
+import ShapeCross from '../shapes/Cross';
 
 import valueOrIdentity from './valueOrIdentity';
 
