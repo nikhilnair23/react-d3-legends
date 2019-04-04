@@ -32,7 +32,7 @@ var _Diamond = require('../shapes/Diamond');
 
 var _Diamond2 = _interopRequireDefault(_Diamond);
 
-var _cross = require('../shapes/Cross');
+var _cross = require('../shapes/cross');
 
 var _cross2 = _interopRequireDefault(_cross);
 
